@@ -28,3 +28,7 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- Checkout at /assinar is a pure client-side simulation: no payment gateway, no server calls, order passed to /obrigado via sessionStorage. Why: the brief forbids real transactions or storing card data.
+- Commercial constants and real cover assets live in src/lib/offer.ts; CPF/CNPJ/mask logic in src/lib/br-validators.ts (tested). Why: one source of truth for price and copy across all three pages.

@@ -12,7 +12,7 @@ export function CookieBanner() {
   const save = (value: string) => { localStorage.setItem(KEY, value); setShow(false); };
   if (!show) return null;
   return (
-    <div role="region" aria-label="Preferências de cookies" className="animate-rise fixed bottom-24 left-4 right-4 z-50 max-w-sm rounded-sm border border-rule bg-card p-5 shadow-object md:bottom-6 md:left-6 md:right-auto">
+    <div role="region" aria-label="Preferências de cookies" className="animate-rise fixed bottom-4 left-4 right-4 z-50 max-w-sm rounded-sm border border-rule bg-card p-4 md:p-5 shadow-object md:bottom-6 md:left-6 md:right-auto">
       <p className="text-sm leading-relaxed text-ink-soft">Usamos cookies para medir o uso desta página.</p>
       {prefs && (
         <div className="mt-4 space-y-3 border-t border-rule pt-4 text-sm">
