@@ -77,9 +77,9 @@ function Checkout() {
     s("name", "Ana Leitora Demonstração"); s("cpf", "529.982.247-25"); s("email", "ana.demo@exemplo.com"); s("emailConfirm", "ana.demo@exemplo.com");
     s("phone", "(11) 98765-4321"); s("cep", "01452-000"); s("street", "Rua Exemplo da Ciência"); s("number", "367");
     s("district", "Jardim Demonstração"); s("city", "São Paulo"); s("state", "SP");
-    if (v.method === "card") useTestCard();
+    if (v.method === "card") applyTestCard();
   }
-  function useTestCard() {
+  function applyTestCard() {
     const s = (k: keyof CheckoutValues, val: string) => setValue(k, val as never, { shouldValidate: true, shouldDirty: true });
     s("cardName", TEST_CARD.name); s("cardNumber", TEST_CARD.number); s("cardExpiry", TEST_CARD.expiry); s("cardCvv", TEST_CARD.cvv);
   }
@@ -245,7 +245,7 @@ function Checkout() {
                   <div className="grid gap-6 md:grid-cols-[1fr_auto]">
                     <div className="grid gap-4 sm:grid-cols-2">
                       <p className="text-sm text-ink-soft sm:col-span-2">Use somente o cartão de teste. Dados reais não são aceitos nem armazenados.
-                        <button type="button" onClick={useTestCard} className="link-ed ml-1 font-semibold text-ink">Usar cartão de teste</button></p>
+                        <button type="button" onClick={applyTestCard} className="link-ed ml-1 font-semibold text-ink">Usar cartão de teste</button></p>
                       <Field label="Nome impresso no cartão" className="sm:col-span-2" autoComplete="off" error={errors.cardName?.message} {...masked("cardName", (s) => s.toUpperCase())} />
                       <Field label="Número do cartão de teste" className="sm:col-span-2" inputMode="numeric" autoComplete="off" placeholder="4242 4242 4242 4242" error={errors.cardNumber?.message} {...masked("cardNumber", maskCard)} />
                       <Field label="Validade de teste" inputMode="numeric" autoComplete="off" placeholder="MM/AA" error={errors.cardExpiry?.message} {...masked("cardExpiry", maskExpiry)} />
