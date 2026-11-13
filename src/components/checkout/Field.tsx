@@ -2,7 +2,7 @@ import { forwardRef, type InputHTMLAttributes, type ReactNode } from "react";
 import { AlertCircle, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-type Props = InputHTMLAttributes<HTMLInputElement> & { label: string; error?: string; valid?: boolean; hint?: ReactNode; optional?: boolean };
+type Props = InputHTMLAttributes<HTMLInputElement> & { label: string; error?: string | undefined; valid?: boolean | undefined; hint?: ReactNode; optional?: boolean };
 
 export const Field = forwardRef<HTMLInputElement, Props>(function Field({ label, error, valid, hint, optional, id, className, ...rest }, ref) {
   const fid = id ?? rest.name!;
@@ -33,7 +33,7 @@ export const Field = forwardRef<HTMLInputElement, Props>(function Field({ label,
   );
 });
 
-export function SelectField({ label, error, id, children, ...rest }: React.SelectHTMLAttributes<HTMLSelectElement> & { label: string; error?: string }) {
+export function SelectField({ label, error, id, children, ...rest }: React.SelectHTMLAttributes<HTMLSelectElement> & { label: string; error?: string | undefined }) {
   const fid = id ?? rest.name!;
   return (
     <div>

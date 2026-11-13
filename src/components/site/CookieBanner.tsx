@@ -8,7 +8,7 @@ export function CookieBanner() {
   const [show, setShow] = useState(false);
   const [prefs, setPrefs] = useState(false);
   const [analytics, setAnalytics] = useState(false);
-  useEffect(() => { if (!localStorage.getItem(KEY)) { const t = setTimeout(() => setShow(true), 1200); return () => clearTimeout(t); } }, []);
+  useEffect(() => { if (!localStorage.getItem(KEY)) { const t = setTimeout(() => setShow(true), 1200); return () => clearTimeout(t); } return undefined; }, []);
   const save = (value: string) => { localStorage.setItem(KEY, value); setShow(false); };
   if (!show) return null;
   return (

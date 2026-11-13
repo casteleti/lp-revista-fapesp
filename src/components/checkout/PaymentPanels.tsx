@@ -16,7 +16,7 @@ function FakeQr() {
   const cells: boolean[] = [];
   let seed = 367;
   for (let i = 0; i < size * size; i++) { seed = (seed * 9301 + 49297) % 233280; cells.push(seed / 233280 > 0.52); }
-  const finder = (x: number, y: number) => [[0, 0], [size - 7, 0], [0, size - 7]].some(([fx, fy]) => x >= fx && x < fx + 7 && y >= fy && y < fy + 7);
+  const finder = (x: number, y: number) => [[0, 0], [size - 7, 0], [0, size - 7]].some(([fx = 0, fy = 0]) => x >= fx && x < fx + 7 && y >= fy && y < fy + 7);
   const finderOn = (x: number, y: number) => { const fx = x < 7 ? 0 : size - 7; const fy = y < 7 ? 0 : size - 7; const dx = x - fx, dy = y - fy; return dx === 0 || dy === 0 || dx === 6 || dy === 6 || (dx >= 2 && dx <= 4 && dy >= 2 && dy <= 4); };
   return (
     <svg viewBox={`0 0 ${size} ${size}`} className="h-40 w-40" role="img" aria-label="QR Code ilustrativo, sem valor de pagamento">
@@ -58,7 +58,7 @@ export function BoletoPanel() {
   );
 }
 
-export function CardPreview({ name, number, expiry }: { name?: string; number?: string; expiry?: string }) {
+export function CardPreview({ name, number, expiry }: { name?: string | undefined; number?: string | undefined; expiry?: string | undefined }) {
   return (
     <div className="relative aspect-[1.586] w-full max-w-xs overflow-hidden rounded-xl bg-ink p-5 text-paper shadow-object">
       <div aria-hidden className="absolute -top-16 -right-10 h-48 w-48 rounded-full bg-signal/40 blur-2xl" />
