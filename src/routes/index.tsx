@@ -38,7 +38,7 @@ function Index() {
     const on = () => setBarVisible(window.scrollY > window.innerHeight * 0.8);
     on();
     window.addEventListener("scroll", on, { passive: true });
-    const io = new IntersectionObserver(([e]) => setFinalVisible(e.isIntersecting), { threshold: 0 });
+    const io = new IntersectionObserver(([e]) => setFinalVisible(!!e?.isIntersecting), { threshold: 0 });
     if (finalRef.current) io.observe(finalRef.current);
     return () => { window.removeEventListener("scroll", on); io.disconnect(); };
   }, []);
