@@ -16,12 +16,19 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        signal:
+          "group relative overflow-hidden rounded-sm bg-signal text-signal-foreground font-semibold tracking-wide shadow-soft transition-all duration-500 hover:-translate-y-0.5 hover:bg-ink active:translate-y-0",
+        ink: "group rounded-sm bg-ink text-paper font-semibold tracking-wide transition-all duration-500 hover:-translate-y-0.5 hover:bg-signal",
+        line: "group rounded-sm border border-ink/80 bg-transparent text-ink font-medium transition-all duration-500 hover:bg-ink hover:text-paper",
+        nightLine:
+          "group rounded-sm border border-night-foreground/40 bg-transparent text-night-foreground font-medium transition-all duration-500 hover:bg-night-foreground hover:text-night",
       },
       size: {
         default: "h-9 px-4 py-2",
         sm: "h-8 rounded-md px-3 text-xs",
         lg: "h-10 rounded-md px-8",
         icon: "h-9 w-9",
+        xl: "h-14 px-7 text-[0.95rem]",
       },
     },
     defaultVariants: {
