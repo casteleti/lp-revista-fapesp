@@ -1,12 +1,19 @@
 import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
+import logoInk from "@/assets/pesquisa-fapesp-logo.png.asset.json";
+import logoWhite from "@/assets/pesquisa-fapesp-logo-branco.png.asset.json";
 
-/** Typographic wordmark for the prototype — replace with the official Pesquisa FAPESP logo file when supplied. */
+/** Official Pesquisa FAPESP logo. `tone="night"` uses the white version for dark backgrounds. */
 export function Brand({ className, tone = "ink" }: { className?: string; tone?: "ink" | "night" }) {
   return (
-    <Link to="/" aria-label="Pesquisa FAPESP — início" className={cn("group inline-flex items-baseline gap-1.5 leading-none", className)}>
-      <span className={cn("font-serif text-[1.55rem] italic tracking-tight", tone === "night" ? "text-night-foreground" : "text-ink")}>Pesquisa</span>
-      <span className="font-sans text-[0.8rem] font-bold tracking-[0.22em] text-signal">FAPESP</span>
+    <Link to="/" aria-label="Pesquisa FAPESP — início" className={cn("group inline-flex items-center leading-none", className)}>
+      <img
+        src={tone === "night" ? logoWhite.url : logoInk.url}
+        alt="Pesquisa FAPESP"
+        className="h-6 w-auto md:h-7"
+        width={1920}
+        height={341}
+      />
     </Link>
   );
 }

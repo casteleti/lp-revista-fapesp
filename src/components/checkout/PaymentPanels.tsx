@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Copy, Check, QrCode, CreditCard, Barcode } from "lucide-react";
 import { cn } from "@/lib/utils";
+import logoWhite from "@/assets/pesquisa-fapesp-logo-branco.png.asset.json";
 
 export const METHODS = [
   { id: "pix", label: "Pix", Icon: QrCode },
@@ -63,7 +64,7 @@ export function CardPreview({ name, number, expiry }: { name?: string | undefine
     <div className="relative aspect-[1.586] w-full max-w-xs overflow-hidden rounded-xl bg-ink p-5 text-paper shadow-object">
       <div aria-hidden className="absolute -top-16 -right-10 h-48 w-48 rounded-full bg-signal/40 blur-2xl" />
       <div className="relative flex h-full flex-col justify-between">
-        <div className="flex items-center justify-between"><span className="font-serif italic">Pesquisa</span><span className="kicker text-paper/60">Teste</span></div>
+        <div className="flex items-center justify-between"><img src={logoWhite.url} alt="Pesquisa FAPESP" className="h-4 w-auto" /><span className="kicker text-paper/60">Teste</span></div>
         <p className="font-mono text-lg tracking-[0.12em]">{number || "•••• •••• •••• ••••"}</p>
         <div className="flex justify-between text-xs uppercase"><span className="truncate pr-4">{name || "Nome no cartão"}</span><span>{expiry || "MM/AA"}</span></div>
       </div>
