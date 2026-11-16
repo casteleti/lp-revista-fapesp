@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Copy, Check, QrCode, CreditCard, Barcode } from "lucide-react";
 import { cn } from "@/lib/utils";
+import logoWhite from "@/assets/pesquisa-fapesp-logo-branco.png.asset.json";
 
 export const METHODS = [
   { id: "pix", label: "Pix", Icon: QrCode },
