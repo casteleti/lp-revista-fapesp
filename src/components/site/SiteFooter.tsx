@@ -7,7 +7,7 @@ export function SiteFooter() {
     <footer className="bg-night pb-28 text-night-foreground md:pb-0">
       <div className="container-ed grid gap-10 border-t border-night-foreground/10 py-14 md:grid-cols-[1.4fr_1fr]">
         <div className="space-y-4">
-          <Brand tone="night" />
+          <Brand tone="night" size="sm" />
           <p className="max-w-md text-sm leading-relaxed text-night-muted">
             A revista Pesquisa FAPESP é editada pela FAPESP.<br />
             Assinaturas: Funep — Fundação de Apoio a Pesquisa, Ensino e Extensão.<br />
